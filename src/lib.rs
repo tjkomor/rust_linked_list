@@ -1,5 +1,11 @@
-struct LinkedList {
+ pub struct LinkedList {
     head: Link,
+}
+
+impl LinkedList {
+    fn empty() -> LinkedList {
+        LinkedList {head: None}
+    }
 }
 
 struct Node {
@@ -11,11 +17,11 @@ type Link = Option<Box<Node>>;
 
 #[cfg(test)]
 mod tests {
+    use std::io::Empty;
+
     use super::*;
     #[test]
     fn it_works() {
-        let list: Option<Box<Node>> = Some(Box::new(Node { 
-            element: (1), next: None 
-        }));
+        let list: LinkedList = LinkedList::empty();
     }
 }
