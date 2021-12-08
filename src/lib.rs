@@ -18,11 +18,17 @@ impl LinkedList {
     }
 
     fn pop(&mut self) -> Option<i32> {
-        let old_head: Option<Box<Node>> = self.head.take();
-        old_head.map(|n| {
+        self.head.take().map(|n| {
             self.head = n.next;
             n.element
         }) 
+    }
+
+    fn peek(&mut self) -> Option<&i32> {
+        match &self.head {
+            Some(n) => Some(&n.element),
+            None => None,
+        }
     }
 }
 
